@@ -1,26 +1,45 @@
-<html>  
+<html lang="es" data-bs-theme="dark"> <!-- todos los elementos del sitio se ajustaran al modo oscuro-->
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--hace que el tamaño del sitio se adapte a la pantalla del dispositivo que se conecte-->
+    
     <title>Pagina Principal</title>
-    <body style="background-color: black;">
 
-       
-            <h1 style="color: crimson; text-align: center; text-decoration: underline; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 90px;">Esta es la pagina principal Del Proyecto.</h1>
-            <p style="color: rgb(246, 107, 0); text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 24px;">
-                En La pagina principal veras 2 botones, login y registro, el de login te llevara a la pagina de login y el de registro te llevara a la pagina de registro, en ambas paginas se te pedira un correo y una contraseña, en el caso del login se te pedira que ingreses un correo y una contraseña que ya hayas registrado, y en el caso del registro se te pedira que ingreses un correo y una contraseña para crear una cuenta nueva.
-        </p>  
+    
 
-        <div>
-            <button style="background-color: crimson; color: white; border: none; padding: 10px 20px; margin: 5px; cursor: pointer;">Login</button>
-            <button style="background-color: crimson; color: white; border: none; padding: 10px 20px; margin: 5px; cursor: pointer;">Registro</button>
-        </div>
-        
-        
+    <link rel="stylesheet" href="Boostrap css y js framework/bootstrap-5.3.8-dist/css/bootstrap.min.css"> <!-- exportamos la libreria de bootstrap-->
 
-
-    </body>
 </head>
+
+  
+
+<body>
+
+    <div class="container text-center my-5"> <!-- conteiner lo que hace es limitar el ancho para que el texto no se estire demasiado, creando una caja para el texto que contiene-->
+
+        <h1 class="display-1 text-danger text-decoration-underline">Esta es la pagina principal Del Proyecto.</h1>
+
+        <p class="fs-4 text-warning my-4">
+
+            En la página principal verás 2 botones, login y registro. El de login te llevará a la página de inicio de sesión y el de registro te llevará a la página para crear una cuenta nueva.
+
+        </p>
+
+         <div class="d-flex justify-content-center gap-2"> <!-- centra el contenido del div en la pagina-->
+
+             <button class="btn btn-outline-danger btn-lg">Login</button> <!-- lo que hace es darnos un estilo de botón transparente con borde rojo y texto rojo. Al pasar el mouse, se rellena de rojo. -->
+
+             <button class="btn btn-outline-danger btn-lg">Registro</button>
+
+         </div>
+
+  
+
+</body>
+
+  
 
 </html>
