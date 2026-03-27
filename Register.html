@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Cuenta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="Register.html"class="nav-enlace">Inicio</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="register-card">
+
+     
+      <div class="card-header">
+        <p class="card-header__eyebrow">Bienvenido</p>
+        <h1 class="card-header__title">Crear <span>cuenta</span></h1>
+        <p class="card-header__sub">Completá tus datos para registrarte</p>
+      </div>
+
+    
+      <div class="card-body">
+
+        
+        <form
+          action=""
+          class="formulario"
+          id="formulario"
+          onsubmit="return validacion(event)"
+          novalidate
+        >
+
+          <!-- Nombre -->
+          <div class="formulario__grupo" id="grupo__nombre">
+            <label for="nombre" class="formulario__label">Nombre</label>
+            <input
+              type="text"
+              class="formulario__input"
+              name="nombre"
+              id="nombre"
+              placeholder="Ej: Juan"
+              autocomplete="given-name"
+              required
+            >
+          </div>
+
+          <!-- Apellido (opcional) -->
+          <div class="formulario__grupo" id="grupo__apellido">
+            <label for="apellido" class="formulario__label">
+              Apellido <span class="opt">(opcional)</span>
+            </label>
+            <input
+              type="text"
+              class="formulario__input"
+              name="apellido"
+              id="apellido"
+              placeholder="Ej: García"
+              autocomplete="family-name"
+            >
+          </div>
+
+          <!-- Nombre de usuario -->
+          <div class="formulario__grupo" id="grupo__username">
+            <label for="username" class="formulario__label">Usuario</label>
+            <input
+              type="text"
+              class="formulario__input"
+              name="username"
+              id="username"
+              placeholder="Ej: juangarcia99"
+              autocomplete="username"
+              required
+            >
+          </div>
+
+          <!-- Fecha de nacimiento -->
+          <div class="formulario__grupo" id="grupo__nacimiento">
+            <label for="nacimiento" class="formulario__label">
+              Nacimiento <span class="opt">(opcional)</span>
+            </label>
+            <input
+              type="date"
+              class="formulario__input"
+              name="nacimiento"
+              id="nacimiento"
+            >
+          </div>
+
+          <!-- Correo electrónico -->
+          <div class="formulario__grupo formulario__grupo--full" id="grupo__correo">
+            <label for="correo" class="formulario__label">Correo electrónico</label>
+            <input
+              type="email"
+              class="formulario__input"
+              name="correo"
+              id="correo"
+              placeholder="nombre@correo.com"
+              autocomplete="email"
+              required
+            >
+          </div>
+
+          <!-- Contraseña -->
+          <div class="formulario__grupo" id="grupo__password">
+            <label for="password" class="formulario__label">Contraseña</label>
+            <input
+              type="password"
+              class="formulario__input"
+              name="password"
+              id="password"
+              placeholder="Mínimo 8 caracteres"
+              autocomplete="new-password"
+              minlength="8"
+              required
+            >
+          </div>
+
+          <!-- Teléfono -->
+          <div class="formulario__grupo" id="grupo__telefono">
+            <label for="telefono" class="formulario__label">Teléfono</label>
+            <input
+              type="tel"
+              class="formulario__input"
+              name="telefono"
+              id="telefono"
+              placeholder="Ej: 2996740981"
+              autocomplete="tel"
+              required
+            >
+          </div>
+
+          <!--País -->
+          <div class="formulario__grupo formulario__grupo--full" id="grupo__paises">
+            <label for="paises" class="formulario__label">País</label>
+            <div class="formulario__grupo-combobox">
+              <select name="paises" id="paises" required>
+                <option value="">Seleccioná un país</option>
+                <option value="1">Argentina</option>
+                <option value="2">Chile</option>
+                <option value="3">Uruguay</option>
+                <option value="4">Paraguay</option>
+                <option value="5">Bolivia</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Comentario -->
+          <div class="formulario__grupo formulario__grupo--full" id="grupo__comentario">
+            <label for="coment" class="formulario__label">Bio <span class="opt">(contanos algo sobre vos)</span></label>
+            <textarea
+              class="comentario"
+              id="coment"
+              name="comentario"
+              placeholder="Escribí una breve presentación…"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Términos y condiciones -->
+          <div class="formulario__grupo formulario__grupo--full formulario__grupo--terminos" id="grupo__terminos">
+            <input
+              type="checkbox"
+              class="formulario__checkbox"
+              name="terminos"
+              id="terminos"
+              required
+            >
+            <label for="terminos">
+              Acepto los <a href="#">Términos y Condiciones</a> y la <a href="#">Política de Privacidad</a>
+            </label>
+          </div>
+
+          <!-- ── Mensaje de error global (oculto por defecto) ── -->
+          <div class="formulario__mensaje formulario__grupo--full" id="formulario__mensaje">
+            <p><b>Error:</b> Por favor completá el formulario correctamente.</p>
+          </div>
+
+          <!-- ── Botón de envío + mensaje de éxito ── -->
+          <div class="formulario__grupo formulario__grupo--full formulario__grupo-btn-enviar">
+            <button type="submit" class="formulario__btn">Crear mi cuenta</button>
+            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">
+              ¡Cuenta creada exitosamente!
+            </p>
+          </div>
+
+          <!-- ── Link a login ── -->
+          <p class="login-link formulario__grupo--full">
+            ¿Ya tenés una cuenta? <a href="#">Iniciá sesión</a>
+          </p>
+
+        </form>
+
+        <!-- Zona de confirmación — controlada por JS original -->
+        <div id="enviado"><p></p></div>
+
+      </div><!-- /.card-body -->
+    </div><!-- /.register-card -->
+  </main>
+
+  <!--- FOOTER -->
+  <footer>
+    <p>
+      2016 – 2025 © Mi Sitio — Todos los derechos reservados.<br>
+      Términos y condiciones · Políticas de privacidad · Política de calidad.
+    </p>
+  </footer>
+
+
+  <!-- JAVASCRIPT DE VALIDACIÓN-->
+  <script>
+
+    // Marca un campo como inválido agregando clase CSS
+    function marcarInvalido(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.add("campo-invalido");
+    }
+
+    // Limpia la marca de inválido al corregir el campo
+    function limpiarInvalido(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove("campo-invalido");
+    }
+
+    // Muestra u oculta el mensaje de error global
+    function mostrarError(visible) {
+      document.getElementById("formulario__mensaje").style.display = visible ? "block" : "none";
+    }
+
+    /* ── Listeners para limpiar error al escribir / cambiar ── */
+    ["nombre","telefono","correo","paises","coment"].forEach(function(id) {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener("input",  function() { limpiarInvalido(id); });
+      if (el) el.addEventListener("change", function() { limpiarInvalido(id); });
+    });
+
+    /* ── Función de validación original (lógica sin modificar) ── */
+    function validacion(e) {
+      e.preventDefault();
+
+      // Limpiar estado previo
+      mostrarError(false);
+      ["nombre","telefono","correo","paises","coment"].forEach(limpiarInvalido);
+
+      let texto;
+      const nom      = document.getElementById("nombre").value;
+      const telefono = document.getElementById("telefono").value;
+      const correo   = document.getElementById("correo").value;
+      const paises   = document.getElementById("paises").value;
+      const coment   = document.getElementById("coment").value;
+
+      // Validaciones originales — ahora con feedback visual al fallar
+      if (!nom)      { marcarInvalido("nombre");   mostrarError(true); return; }
+      if (!telefono) { marcarInvalido("telefono");  mostrarError(true); return; }
+      if (!correo)   { marcarInvalido("correo");    mostrarError(true); return; }
+      if (!paises)   { marcarInvalido("paises");    mostrarError(true); return; }
+      if (!coment)   { marcarInvalido("coment");    mostrarError(true); return; }
+
+      // Todo OK — comportamiento original
+      texto = "Datos Enviados";
+      document.getElementById("enviado").innerHTML = texto;
+      mostrarError(false);
+    }
+  </script>
+
+</body>
+</html>

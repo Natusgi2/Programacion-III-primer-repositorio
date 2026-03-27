@@ -1,0 +1,451 @@
+/* VARIABLES — Paleta de colores  */
+:root {
+    --sky-50:  #f0f9ff;
+    --sky-100: #d9f0fb;
+    --sky-200: #b3dff5;
+    --sky-300: #7ec8ea;
+    --sky-400: #4aaed6;
+    --sky-500: #2896c4;
+  
+    --ink-900: #0d0f12;
+    --ink-800: #1a1d24;
+    --ink-700: #2a2f3b;
+    --ink-400: #5a6278;
+    --ink-200: #b0b8cc;
+  
+    --error:   #e05c6e;
+    --success: #3bbfa0;
+  
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+  
+    --shadow-card: 0 24px 64px rgba(13,15,18,.18), 0 2px 8px rgba(13,15,18,.08);
+    --transition: 0.22s cubic-bezier(.4,0,.2,1);
+  }
+  
+  /* RESET & BASE */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--sky-50);
+    color: var(--ink-800);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  
+    /* Fondo geométrico sutil */
+    background-image:
+      radial-gradient(circle at 15% 20%, var(--sky-200) 0%, transparent 45%),
+      radial-gradient(circle at 85% 80%, var(--sky-100) 0%, transparent 40%);
+  }
+  
+  /* NAVBAR */
+  header {
+    background: var(--ink-900);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,.35);
+  }
+  
+  nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    height: 60px;
+  }
+  
+  /* Logo / brand en navbar */
+  nav::before {
+    content: "●";
+    color: var(--sky-300);
+    font-size: 1.4rem;
+    margin-right: auto;
+  }
+  
+  .nav-enlace {
+    color: var(--ink-200);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-sm);
+    transition: color var(--transition), background var(--transition);
+    letter-spacing: 0.02em;
+  }
+  .nav-enlace:hover {
+    color: #fff;
+    background: rgba(255,255,255,.07);
+  }
+  
+  .nav-whatsapp {
+    color: var(--ink-900);
+    background: var(--sky-300);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.45rem 1.1rem;
+    border-radius: var(--radius-sm);
+    margin-left: 0.5rem;
+    transition: background var(--transition), transform var(--transition);
+  }
+  .nav-whatsapp:hover {
+    background: var(--sky-400);
+    transform: translateY(-1px);
+  }
+  
+  /* LAYOUT PRINCIPAL */
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+  }
+  
+  /* CARD DEL FORMULARIO */
+  .register-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    width: 100%;
+    max-width: 620px;
+    overflow: hidden;
+    animation: slideUp .45s cubic-bezier(.4,0,.2,1) both;
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Encabezado de la card */
+  .card-header {
+    background: var(--ink-900);
+    padding: 2.25rem 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Decoración geométrica en el header */
+  .card-header::before {
+    content: '';
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sky-400) 0%, transparent 70%);
+    opacity: 0.18;
+    top: -80px;
+    right: -60px;
+  }
+  
+  .card-header__eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sky-300);
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-header__title {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+  }
+  
+  .card-header__title span {
+    color: var(--sky-300);
+  }
+  
+  .card-header__sub {
+    margin-top: 0.6rem;
+    font-size: 0.875rem;
+    color: var(--ink-200);
+  }
+  
+  /* Cuerpo de la card con el formulario */
+  .card-body {
+    padding: 2.25rem 2.5rem 2.5rem;
+  }
+  
+  /* FORMULARIO — ESTRUCTURA GRID */
+  .formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem 1.5rem;
+  }
+  
+  /* Grupos que deben ocupar ancho completo */
+  .formulario__grupo--full {
+    grid-column: 1 / -1;
+  }
+  
+  /* GRUPOS DE CAMPO */
+  .formulario__grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  
+  .formulario__label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-700);
+  }
+  
+  /* Indicador de campo opcional */
+  .formulario__label .opt {
+    font-weight: 400;
+    text-transform: none;
+    color: var(--ink-200);
+    font-size: 0.72rem;
+    letter-spacing: 0;
+    margin-left: 4px;
+  }
+  
+  /* INPUTS DE TEXTO / EMAIL / DATE / TEL / PASSWORD */
+  .formulario__input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1.5px solid var(--sky-100);
+    border-radius: var(--radius-sm);
+    background: var(--sky-50);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--ink-800);
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+    appearance: none;
+  }
+  
+  .formulario__input::placeholder { color: var(--ink-200); }
+  
+  .formulario__input:focus {
+    border-color: var(--sky-400);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(74,174,214,.18);
+  }
+  
+  /* SELECT / COMBOBOX */
+  .formulario__grupo-combobox {
+    position: relative;
+  }
+  
+  .formulario__grupo-combobox select {
+    width: 100%;
+    padding: 0.7rem 2.5rem 0.7rem 1rem;
+    border: 1.5px solid var(--sky-100);
+    border-radius: var(--radius-sm);
+    background: var(--sky-50);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--ink-800);
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color var(--transition), box-shadow var(--transition);
+  }
+  
+  .formulario__grupo-combobox select:focus {
+    border-color: var(--sky-400);
+    box-shadow: 0 0 0 3px rgba(74,174,214,.18);
+  }
+  
+  /* Flecha personalizada del select */
+  .formulario__grupo-combobox::after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--ink-400);
+  }
+  
+  /* TEXTAREA DE COMENTARIO / BIO */
+  .comentario {
+    width: 100%;
+    min-height: 110px;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--sky-100);
+    border-radius: var(--radius-sm);
+    background: var(--sky-50);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--ink-800);
+    resize: vertical;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+  }
+  
+  .comentario::placeholder { color: var(--ink-200); }
+  
+  .comentario:focus {
+    border-color: var(--sky-400);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(74,174,214,.18);
+  }
+  
+  /* CHECKBOX DE TÉRMINOS Y CONDICIONES */
+  .formulario__grupo--terminos {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+  
+  .formulario__checkbox {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--sky-400);
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+  }
+  
+  .formulario__grupo--terminos label {
+    font-size: 0.82rem;
+    color: var(--ink-400);
+    cursor: pointer;
+    line-height: 1.4;
+  }
+  
+  .formulario__grupo--terminos label a {
+    color: var(--sky-500);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  /* CAMPO INVÁLIDO — clase agregada por JS al fallar validación */
+  .campo-invalido,
+  .campo-invalido.formulario__input,
+  .campo-invalido.comentario,
+  .formulario__grupo-combobox:has(.campo-invalido) select,
+  select.campo-invalido {
+    border-color: var(--error) !important;
+    background: rgba(224,92,110,.06) !important;
+    box-shadow: 0 0 0 3px rgba(224,92,110,.15) !important;
+  }
+  
+  /* MENSAJE DE ERROR GLOBAL */
+  .formulario__mensaje {
+    display: none; /* oculto por defecto; JS lo muestra al fallar */
+    background: rgba(224,92,110,.08);
+    border: 1.5px solid var(--error);
+    border-radius: var(--radius-sm);
+    padding: 0.65rem 1rem;
+    font-size: 0.82rem;
+    color: var(--error);
+  }
+  
+  /* BOTÓN ENVIAR */
+  .formulario__grupo-btn-enviar {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .formulario__btn {
+    width: 100%;
+    padding: 0.85rem;
+    background: var(--ink-900);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Shimmer animado al hover */
+  .formulario__btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+    transition: left 0.45s ease;
+  }
+  
+  .formulario__btn:hover {
+    background: var(--sky-500);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(40,150,196,.3);
+  }
+  
+  .formulario__btn:hover::before { left: 150%; }
+  
+  .formulario__btn:active { transform: translateY(0); }
+  
+  /* MENSAJE DE ÉXITO (inline) */
+  .formulario__mensaje-exito {
+    display: none; /* JS lo activa tras envío exitoso */
+    color: var(--success);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  /* Zona de confirmación debajo del formulario */
+  #enviado {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-weight: 700;
+    color: var(--success);
+    font-size: 1rem;
+    min-height: 1.5rem;
+  }
+  
+  /*¿ya tenés cuenta?*/
+  .login-link {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--ink-400);
+    padding-top: 0.25rem;
+  }
+  
+  .login-link a {
+    color: var(--sky-500);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  /* FOOTER */
+  footer {
+    background: var(--ink-900);
+    color: var(--ink-200);
+    text-align: center;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    padding: 1.5rem 2rem;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 560px) {
+    .card-body    { padding: 1.75rem 1.5rem 2rem; }
+    .card-header  { padding: 1.75rem 1.5rem; }
+    .card-header__title { font-size: 1.6rem; }
+    .formulario   { grid-template-columns: 1fr; }
+    .formulario__grupo--full { grid-column: 1; }
+  }
