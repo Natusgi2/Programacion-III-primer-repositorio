@@ -28,14 +28,11 @@
     
       <div class="card-body">
 
-        
         <form
-          action=""
-          class="formulario"
-          id="formulario"
-          onsubmit="return validacion(event)"
-          novalidate
-        >
+        action=""
+        class="formulario"
+        id="formulario"
+      >
 
           <!-- Nombre -->
           <div class="formulario__grupo" id="grupo__nombre">
@@ -213,59 +210,24 @@
   </footer>
 
 
-  <!-- JAVASCRIPT DE VALIDACIÓN-->
+  <!-- JAVASCRIPT DE VALIDACIÓN -->
   <script>
-
-    // Marca un campo como inválido agregando clase CSS
-    function marcarInvalido(id) {
-      const el = document.getElementById(id);
-      if (el) el.classList.add("campo-invalido");
-    }
-
-    // Limpia la marca de inválido al corregir el campo
-    function limpiarInvalido(id) {
-      const el = document.getElementById(id);
-      if (el) el.classList.remove("campo-invalido");
-    }
-
-    // Muestra u oculta el mensaje de error global
-    function mostrarError(visible) {
-      document.getElementById("formulario__mensaje").style.display = visible ? "block" : "none";
-    }
-
-    /* ── Listeners para limpiar error al escribir / cambiar ── */
-    ["nombre","telefono","correo","paises","coment"].forEach(function(id) {
-      const el = document.getElementById(id);
-      if (el) el.addEventListener("input",  function() { limpiarInvalido(id); });
-      if (el) el.addEventListener("change", function() { limpiarInvalido(id); });
-    });
-
-    /* ── Función de validación original (lógica sin modificar) ── */
-    function validacion(e) {
-      e.preventDefault();
-
-      // Limpiar estado previo
-      mostrarError(false);
-      ["nombre","telefono","correo","paises","coment"].forEach(limpiarInvalido);
-
-      let texto;
-      const nom      = document.getElementById("nombre").value;
+    function validacion(e){
+  
+      const nom = document.getElementById("nombre").value;
       const telefono = document.getElementById("telefono").value;
-      const correo   = document.getElementById("correo").value;
-      const paises   = document.getElementById("paises").value;
-      const coment   = document.getElementById("coment").value;
-
-      // Validaciones originales — ahora con feedback visual al fallar
-      if (!nom)      { marcarInvalido("nombre");   mostrarError(true); return; }
-      if (!telefono) { marcarInvalido("telefono");  mostrarError(true); return; }
-      if (!correo)   { marcarInvalido("correo");    mostrarError(true); return; }
-      if (!paises)   { marcarInvalido("paises");    mostrarError(true); return; }
-      if (!coment)   { marcarInvalido("coment");    mostrarError(true); return; }
-
-      // Todo OK — comportamiento original
-      texto = "Datos Enviados";
-      document.getElementById("enviado").innerHTML = texto;
-      mostrarError(false);
+      const correo = document.getElementById("correo").value;
+      const paises = document.getElementById("paises").value;
+      const coment = document.getElementById("coment").value;
+  
+      if(!nom) return false;
+      if(!telefono) return false;
+      if(!correo) return false;
+      if(!paises) return false;
+      if(!coment) return false;
+  
+      document.getElementById("enviado").innerHTML = "Datos Enviados";
+      return false; // para que no recargue la página
     }
   </script>
 
