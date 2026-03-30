@@ -1,0 +1,48 @@
+<!-- iniciar sesion -->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Boostrap css y js framework/bootstrap-5.3.8-dist/css/bootstrap.min.css"> <!-- exportamos la libreria de bootstrap-->
+        <title>Login</title>
+        <style>
+            body {
+                background-image: url('Assets/colorful-night-in-the-mountains-digital-art_1920x1080_xtrafondos.com.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+            }
+
+            .login-wrapper {
+                background-color: rgba(40, 40, 40, 0.75);
+                padding: 2.5rem;
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid text-center login-wrapper">
+            <h1 class="display-1 text-danger"><u>Iniciar Sesión</u></h1>
+            <p class="fs-4 text-warning my-4">Ingresa tus credenciales para acceder a tu cuenta.</p>
+            <form>
+                <div class="mb-3">
+                    <label for="email" class="form-label text-light">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label text-light">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña">
+                </div>
+                <button type="submit" class="btn btn-danger btn-lg">Iniciar Sesión</button>
+            </form>
+        </div>
+    </body>
+</html>
