@@ -1,9 +1,9 @@
 /* VARIABLES — Paleta de colores  */
 :root {
-    --sky-50:  #f0f9ff;
-    --sky-100: #d9f0fb;
-    --sky-200: #b3dff5;
-    --sky-300: #7ec8ea;
+    --sky-50:  #2c2f31;
+    --sky-100: #121c21;
+    --sky-200: #142b36;
+    --sky-300: #10b0f4;
     --sky-400: #4aaed6;
     --sky-500: #2896c4;
   
@@ -83,22 +83,7 @@
     background: rgba(255,255,255,.07);
   }
   
-  .nav-whatsapp {
-    color: var(--ink-900);
-    background: var(--sky-300);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 600;
-    padding: 0.45rem 1.1rem;
-    border-radius: var(--radius-sm);
-    margin-left: 0.5rem;
-    transition: background var(--transition), transform var(--transition);
-  }
-  .nav-whatsapp:hover {
-    background: var(--sky-400);
-    transform: translateY(-1px);
-  }
-  
+ 
   /* LAYOUT PRINCIPAL */
   main {
     flex: 1;
@@ -221,7 +206,7 @@
     padding: 0.7rem 1rem;
     border: 1.5px solid var(--sky-100);
     border-radius: var(--radius-sm);
-    background: var(--sky-50);
+    background:#b0b8cc5c;
     font-family: 'DM Sans', sans-serif;
     font-size: 0.9rem;
     color: var(--ink-800);
@@ -248,7 +233,7 @@
     padding: 0.7rem 2.5rem 0.7rem 1rem;
     border: 1.5px solid var(--sky-100);
     border-radius: var(--radius-sm);
-    background: var(--sky-50);
+    background: #b0b8cc5c;
     font-family: 'DM Sans', sans-serif;
     font-size: 0.9rem;
     color: var(--ink-800);
@@ -285,7 +270,7 @@
     padding: 0.75rem 1rem;
     border: 1.5px solid var(--sky-100);
     border-radius: var(--radius-sm);
-    background: var(--sky-50);
+    background: #b0b8cc5c;
     font-family: 'DM Sans', sans-serif;
     font-size: 0.9rem;
     color: var(--ink-800);
