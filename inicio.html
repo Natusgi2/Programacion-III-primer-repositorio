@@ -1,0 +1,58 @@
+<html lang="es" data-bs-theme="dark"> <!-- todos los elementos del sitio se ajustaran al modo oscuro-->
+
+<head>
+    <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--hace que el tamaño del sitio se adapte a la pantalla del dispositivo que se conecte-->
+    <title>Pagina Principal</title>
+    <link rel="stylesheet" href="Boostrap css y js framework/bootstrap-5.3.8-dist/css/bootstrap.min.css"> <!-- exportamos la libreria de bootstrap-->
+    <style>
+        body {
+            /* Establecemos la imagen de fondo */
+            background-image: url('Assets/colorful-night-in-the-mountains-digital-art_1920x1080_xtrafondos.com.jpg');
+            /*Y DE QUE ME SIRVE EL <IMG> SI PUEDO HACER ESTO CON CSS? PORQUE DA TANTOS PROBLEMAS EL OTRO PARA PONER BACKGROUND*/
+            /* Hacemos que la imagen cubra todo el fondo, sin deformarse */
+            background-size: cover;
+            
+            /* Centramos la imagen */
+            background-position: center;
+            
+            /* Evitamos que la imagen se repita */
+            background-repeat: no-repeat;
+            
+            /* Fijamos la imagen para que no se desplace con el scroll */
+            background-attachment: fixed;
+            
+            /* Para centrar el contenido vertical y horizontalmente */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la pantalla */
+            margin: 0; /* Elimina márgenes por defecto */
+        }
+
+        .agustin-content-wrapper {
+            background-color: rgba(40, 40, 40, 0.75); /* Fondo oscuro semi-transparente para mejorar la legibilidad */
+            padding: 2.5rem;
+            border-radius: 15px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- El div ahora tiene la clase 'content-wrapper' para aplicar los estilos de arriba y centrar el contenido -->
+    <div class="container-fluid text-center agustin-content-wrapper"> <!-- conteiner lo que hace es limitar el ancho para que el texto no se estire demasiado, creando una caja para el texto que contiene-->
+        <h1 class="display-1 text-danger"> <u>Esta es la pagina principal Del Proyecto.</u></h1>
+        <!-- en telefonos de al menos 320x480 píxeles (minimo en telefonos viejos) el encabezado se buguea y no muestra el texto completo, hay que ver como solucionarlo-->
+        <p class="fs-4 text-warning my-4">
+            En la página principal verás 2 botones, login y registro. El de login te llevará a la página de inicio de sesión y el de registro te llevará a la página para crear una cuenta nueva.
+        </p>
+
+         <div class="d-flex justify-content-center gap-5"> <!-- centra el contenido del div en la pagina-->
+             <button class="btn btn-outline-danger btn-lg">Login</button> <!-- lo que hace es darnos un estilo de botón transparente con borde rojo y texto rojo. Al pasar el mouse, se rellena de rojo. -->
+             <button class="btn btn-outline-danger btn-lg">Registro</button>
+         </div>
+    </div>
+</body>
+
+</html>
